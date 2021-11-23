@@ -7,11 +7,11 @@ Our application allows a user to search based off their zipcode location, and th
 --
 
 ## Contributors
-Ivy Do
-Shawna Boucher
-Chau Nguyen
-Dennis Khaperskov 
-Arturo Castilleja
+*Ivy Do
+*Shawna Boucher
+*Chau Nguyen
+*Dennis Khaperskov 
+*Arturo Castilleja
 
 ## Acknowledgements
 Technologies used: 
