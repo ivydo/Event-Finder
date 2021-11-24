@@ -1,30 +1,29 @@
 //API for Events
-var apiKey = "nj5KONUN4S0uaXTTHiRYghioYphYVR5PmdnqqX51t9O_ZPv-vH01QfFYSgiebxMAtty3laSDhFPcU5kOLiGJtOam85gSX9PU-JG2kBcIe9Tqti87nd3SSQhN44idYXYx";
 
-var clientID = "qaaLZvCSOXNTT-e6BUGMDg";
+var apiKey = "HHCvi5HdAGUQ3rfG7A1ajPyCCVYaKmYj";
 
-var city = "32832";
+var OpenTripAPIKey = "5ae2e3f221c38a28845f05b62cf81c4f59366e1cca6085deda3ca948";
 
-var apiURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3";
+var apiURL = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=HHCvi5HdAGUQ3rfG7A1ajPyCCVYaKmYj&city=orlando";
 
-//Get API Data and sort by zip code
-//var queryURL = "https://api.yelp.com/v3/";
-//var apiKey = "my key" 
+var OpenTripapiURL = "http://api.opentripmap.com/0.1/en/places/xid/Q372040?apikey=" + OpenTripAPIKey + "&name=orlando";
 
-// JavaScript Document
-var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3";
-//var apiKey = "my key"; 
+function getTicket() {
+    fetch(apiURL).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
+        });
+    });
+}
 
-$.ajax({
-    url: queryURL,
-    method: "GET",
-    headers: {
-        "accept": "application/json",
-        "x-requested-with": "xmlhttprequest",
-        "Access-Control-Allow-Origin":"*",
-        "Authorization": `Bearer ${apiKey}`
-     },
-   success: function(result){
-        console.log(result);
-    }
- });
+function getTrip() {
+    fetch(OpenTripapiURL).then(function(response) {
+        response.json().then(function(dataTrip) {
+            console.log(dataTrip);
+        });
+    });
+}
+
+
+getTicket();
+getTrip();
