@@ -3,10 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Spontaneuos Day</title>
 </head>
-<body>
-    
+<body class="has-background-primary-light">
+    <header class="navbar is-light">
+        <h2 class="navbar-start navbar-item">$(TeamName)</h2>
+
+        <nav class="navbar-end">
+            <a href="your-saved-trips" class="navbar-item">Your Saved Trips</a>
+            <a href="about-us" class="navbar-item">About Us</a> 
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero is-primary level">
+            <h1 class="title level-item has-text-centered">SPONTANEOUS DAY</h1>
+        </div>
+        <div class="weather section has-background-warning-light">
+            <a class="title">(DISPLAY WEATHER)</a>
+        </div>
+        <div class="main-input section is-medium columns is-centered">
+            <form class="column is-5">
+                <label>Find an Event:</label>
+                <input type="text" placeholder="Input your zipcode..." name="zipcode" id="zipcode" class="form-input">
+            </form>
+            <button class="button is-light column is-one-fifth" type="submit">
+                SUBMIT
+            </button>
+        </div>
+        <div class="results columns has-background-warning-light">
+            <div class="event-list column">
+                <a>List of events:</a>
+                <ul>
+                    <li>
+                        place 1
+                    </li>
+                    <li>
+                        place 2
+                    </li>
+                    <li>
+                        place 3
+                    </li>
+                </ul>
+            </div>
+            <div class="event-highlights column">
+                <h3>EVENT NAME</h3>
+                <img src="" alt="event-image" />
+                <h3>EVENT DATE</h3>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer content has-text-centered">
+        <h6>Made with Dedication by $(TeamName)</h6>
+        <div class="end">
+            <a href="about-us">About Us</a><br />
+            &copy; 2021 $(TeamName)
+        </div>
+    </footer>
+    <script src="assets/js/events.js"></script>
+    <script src="assets/js/weather.js"></script>
 </body>
 </html>
