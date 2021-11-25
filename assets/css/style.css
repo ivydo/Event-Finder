@@ -1,0 +1,8 @@
+.hero-body {
+    height: 800px;
+    width: 100%;
+    margin-bottom: 0px;
+    background-image: url("../images/nightlife.jpg");
+    background-size: cover;
+    background-position: center;
+}
