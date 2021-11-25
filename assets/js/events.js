@@ -1,11 +1,12 @@
 // global var
-var searchInput = $("#search-input").val();
+// var searchInput = $("#search-input").val();
+var searchInput = "";
 // empty arrays to store data
 var ticketsArr = [];
 
 //API for Events
 var apiKey = "HHCvi5HdAGUQ3rfG7A1ajPyCCVYaKmYj";
-var apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&city=${searchInput}`;
+// var apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&city=${searchInput}`;
 
 // var OpenTripAPIKey = "5ae2e3f221c38a28845f05b62cf81c4f59366e1cca6085deda3ca948";
 // var OpenTripapiURL =
@@ -14,12 +15,14 @@ var apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${api
 //   "&name=orlando";
 
 function getTicket() {
+    var apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&city=${searchInput}`;
   const ticketResults = fetch(apiURL).then(function (response) {
     response.json().then(function (data) {
       console.log("this contains data", data);
       ticketsArr = data;
       console.log(ticketsArr, "ticketsArr");
-      console.log("apiURL", apiURL);
+        console.log("apiURL", apiURL);
+        var searchInput = $("#search-input").val();
     });
   });
 }
@@ -36,7 +39,8 @@ function getTicket() {
 // getTrip();
 
 function showTickets(event) {
-  event.preventDefault();
+    event.preventDefault();
+    
   getTicket();
 
   var ticketResultContainer = document.getElementById("#ticket-result");
