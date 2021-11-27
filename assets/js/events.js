@@ -49,7 +49,7 @@ function showTickets(data) {
     var eventsLi = `
     <button>${eventName}</button>`;
     var eventNameBtn = $(
-      `<button><a target=_blank href="${ticketsArr._embedded.events[i].url}">${eventName}</a></button>`
+      `<button><a target=_blank href="${ticketsArr._embedded.events[i].url}">Buy Ticket</a></button>`
     );
 
     $("#listDiv").append(eventNameBtn);
