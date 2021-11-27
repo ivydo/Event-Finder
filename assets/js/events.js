@@ -41,9 +41,7 @@ function getTickets(event) {
 // getTrip();
 
 function showTickets(data) {
-  console.log(data);
   var events = data._embedded.events;
-  console.log(events);
 
   for (let i = 0; i < 10; i++) {
     var eventListItems = events[i];
