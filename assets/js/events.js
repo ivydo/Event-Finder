@@ -1,10 +1,18 @@
+//------------------------------------------------
 // global var
+//------------------------------------------------
 // var searchInput = $("#search-input").val();
 var searchInput = "";
 // empty arrays to store data
 var ticketsArr = [];
 
+var listDivEl = document.querySelector('#listDiv');
+const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+var eventUrls = [];
+
+//------------------------------------------------
 //API for Events
+//------------------------------------------------
 var apiKey = "HHCvi5HdAGUQ3rfG7A1ajPyCCVYaKmYj";
 var apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&city=${searchInput}`;
 
@@ -13,6 +21,10 @@ var apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${api
 //   "http://api.opentripmap.com/0.1/en/places/xid/Q372040?apikey=" +
 //   OpenTripAPIKey +
 //   "&name=orlando";
+
+//------------------------------------------------
+//Functions
+//------------------------------------------------
 
 function getTickets(event) {
   event.preventDefault();
@@ -46,13 +58,36 @@ function showTickets(data) {
   for (let i = 0; i < 10; i++) {
     var eventListItems = events[i];
     var eventName = ticketsArr._embedded.events[i].name;
-    var eventsLi = `
-    <button>${eventName}</button>`;
-    var eventNameBtn = $(
-      `<button><a target=_blank href="${ticketsArr._embedded.events[i].url}">Buy Ticket</a></button>`
-    );
 
-    $("#listDiv").append(eventNameBtn);
+    eventUrls.push(ticketsArr._embedded.events[i].url);
+  
+    var rowEl = document.createElement("div");
+    rowEl.classList = "event-row";
+    rowEl.id = "eventRow-"+i;
+
+    listDivEl.appendChild(rowEl);
+
+    var eventNameEl = document.createElement("h2");
+    eventNameEl.classList = "event-Name";
+    eventNameEl.textContent = eventName;
+    eventNameEl.id = "eventName-"+i;
+
+    var favoriteButtonEl = document.createElement("button");
+    favoriteButtonEl.classList = "favorite-btn"
+    favoriteButtonEl.textContent = "Favorite"
+    favoriteButtonEl.id = "favoriteBtn-"+i;
+
+    var buyButtonEl = document.createElement("button");
+    buyButtonEl.textContent = "Buy Tickets"
+    buyButtonEl.classList = "buy-btn"
+    buyButtonEl.id = "buyBtn-"+i;
+
+    rowEl.appendChild(eventNameEl);
+
+    rowEl.appendChild(favoriteButtonEl);
+    rowEl.appendChild(buyButtonEl);
+
+
   }
   if (ticketsArr.length === 0) {
     var errorAlert = `<p>Nothing nearby :( </p>`;
@@ -60,4 +95,37 @@ function showTickets(data) {
   }
 }
 
-$(".event-name").click(function () {});
+//Save Favorite
+var saveFavorite = function(eventName) {
+
+  const eventInfo = {
+    eventTitle: eventName,
+  }
+
+  favorites.push(eventInfo);
+
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+
+}
+
+//------------------------------------------------
+//Event Listeners
+//------------------------------------------------
+$(document).on("click", ".favorite-btn", function() {
+
+  var btnName = $(this).attr('id').split('-')[1];
+
+  var text = $("#eventName-" + btnName).text();
+
+  saveFavorite(text);
+});
+
+$(document).on("click", ".buy-btn", function(){
+
+  var btnName = $(this).attr('id').split('-')[1];
+
+  var selectedUrl = eventUrls[btnName];
+
+  window.open(selectedUrl);
+});
+
