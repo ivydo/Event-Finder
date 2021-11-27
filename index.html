@@ -15,13 +15,15 @@
                 <h2 class="search-header">Search for a ticket by city:</h2>
                 <div class="form-content">
                     <input type="text" id="search-input">
-                    <button onclick="showTickets(event)" type="submit" id="search-btn"
+                    <button onclick="getTickets(event)" type="submit" id="search-btn"
                         class="search-btn">Search</button>
                 </div>
             </form>
         </div>
-        <div class="ticket-result" id="ticket-result">
-            <p>Display results here</p>
+        <div class="tickets-result" id="tickets-result">
+            <div id="listDiv">
+                 <p>info</p>
+            </div>
         </div>
     </div>
 

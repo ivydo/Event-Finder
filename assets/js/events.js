@@ -14,15 +14,17 @@ var apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${api
 //   OpenTripAPIKey +
 //   "&name=orlando";
 
-function getTicket() {
+function getTickets(event) {
+  event.preventDefault();
+  searchInput = $("#search-input").val();
   apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&city=${searchInput}`;
-  const ticketResults = fetch(apiURL).then(function (response) {
+  fetch(apiURL).then(function (response) {
     response.json().then(function (data) {
       console.log("this contains data", data);
       ticketsArr = data;
       console.log(ticketsArr, "ticketsArr");
       console.log("apiURL", apiURL);
-      searchInput = $("#search-input").val();
+      showTickets(data);
     });
   });
 }
@@ -38,11 +40,21 @@ function getTicket() {
 // getTicket();
 // getTrip();
 
-function showTickets(event) {
-  event.preventDefault();
-  searchInput = $("#search-input").val();
+function showTickets(data) {
+  console.log(data);
+  var events = data._embedded.events;
+  console.log(events);
 
-  getTicket();
-
-  var ticketResultContainer = document.getElementById("#ticket-result");
+  for (let i = 0; i < 10; i++) {
+    var eventListItems = events[i];
+    console.log("eventListItems");
+    var eventName = ticketsArr._embedded.events[i].name;
+    var eventsLi = `
+    <button type="button">${eventName}</button>`;
+    $("#listDiv").append(eventsLi);
+  }
+  if (ticketsArr.length === 0) {
+    var errorAlert = `<p>Nothing nearby :( </p>`;
+    $("#listDiv").append(errorAlert);
+  }
 }
