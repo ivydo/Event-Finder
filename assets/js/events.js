@@ -45,14 +45,19 @@ function showTickets(data) {
 
   for (let i = 0; i < 10; i++) {
     var eventListItems = events[i];
-    console.log("eventListItems");
     var eventName = ticketsArr._embedded.events[i].name;
     var eventsLi = `
-    <button type="button">${eventName}</button>`;
-    $("#listDiv").append(eventsLi);
+    <button>${eventName}</button>`;
+    var eventNameBtn = $(
+      `<button><a target=_blank href="${ticketsArr._embedded.events[i].url}">${eventName}</a></button>`
+    );
+
+    $("#listDiv").append(eventNameBtn);
   }
   if (ticketsArr.length === 0) {
     var errorAlert = `<p>Nothing nearby :( </p>`;
     $("#listDiv").append(errorAlert);
   }
 }
+
+$(".event-name").click(function () {});
