@@ -33,12 +33,21 @@
         <label id="imagediv">Image</label>
     </section>
     <!---weather-->
-    <section class="is-size-3 has-text-centered py-6">
+    <section class="is-size-3 has-text-centered py-6" id="weather">
         <label>Weather</label>
+            <div  id="city-result">
+                <div id="city"></div>
+                <div id="today"></div>
+                <div id="icon"></div>                   
+                <div id="temp"></div>
+                <div id="wind"></div>
+                <div id="humidity"></div>
+                <div id="uv"></div>
+            </div>
     </section>
     <!---Search Box--> 
-    <form class="box px-6 mx-6 py-6">
-        <div class="field">
+    <form class="box px-6 mx-6 py-6" id="form">
+        <div class="field" >
             <label class="label">Find an event:</label>
             <div class="control">
                 <input class="input" id="citySearch" type="cityName" placeholder="Enter City Name to Search">
@@ -66,12 +75,14 @@
           </div>  
         </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="assets/js/events.js"></script>
+  <script src="./assets/js/weather.js"></script>
 </body>
 
 </html>
