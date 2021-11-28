@@ -5,26 +5,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <title>Spontanious Day</title>
 </head>
+  
+<!---Navigation bar-->
 
 <body>
-    <div class="search-container">
-        <div class="city-search">
-            <form class="search-form" id="search-form">
-                <h2 class="search-header">Search for a ticket by city:</h2>
-                <div class="form-content">
-                    <input type="text" id="search-input">
-                    <button onclick="getTickets(event)" type="submit" id="search-btn" class="search-btn">Search</button>
-                </div>
-            </form>
+    <nav class="navbar has-shadow">
+        <div class="navbar-brand">
+            <label class="navbar-item is-size-3"> Spontanious Day
+            </label>
         </div>
-        <div class="tickets-result" id="tickets-result">
-            <div id="listDiv">
+
+
+        <div class="navbar-menu" id="nav-links">
+            <div class="navbar-end">
+                <a class="navbar-item"> About Us </a>
+                <a class="navbar-item"> contact </a>
             </div>
         </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </nav>
+
+    <!--image-->
+    <section class="is-size-3 has-text-centered py-6">
+        <label id="imagediv">Image</label>
+    </section>
+    <!---weather-->
+    <section class="is-size-3 has-text-centered py-6">
+        <label>Weather</label>
+    </section>
+    <!---Search Box--> 
+    <form class="box px-6 mx-6 py-6">
+        <div class="field">
+            <label class="label">Find an event:</label>
+            <div class="control">
+                <input class="input" type="zipcode" placeholder="Your Zipcode">
+            </div>
+        </div>
+        <button class="button">Search!</button>
+    </form>
+
+    <!---Lists and other box-->
+    <section class="section">
+        <div class="container">
+          <div class="columns">
+              <div class="column is-half has-text-centered">
+                <h1 class = "is-size-5 title ">Activities</h1>
+                <ul>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                </ul>
+              </div>
+              <div class="column is-half has-text-centered">
+                <h1 class = "is-size-5 title ">Activities</h1>
+                <ul>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                </ul>
+              </div>
+          </div>  
+        </div>
+    </section>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
