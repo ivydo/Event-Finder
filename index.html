@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <title>Spontanious Day</title>
 </head>
+  
 <!---Navigation bar-->
 
 <body>
@@ -43,17 +44,16 @@
                 <div id="humidity"></div>
                 <div id="uv"></div>
             </div>
-        
     </section>
     <!---Search Box--> 
     <form class="box px-6 mx-6 py-6" id="form">
         <div class="field" >
             <label class="label">Find an event:</label>
             <div class="control">
-                <input class="input" type="text" placeholder="Enter a city" id="cityname">
+                <input class="input" id="citySearch" type="cityName" placeholder="Enter City Name to Search">
             </div>
         </div>
-        <button class="button">Search!</button>
+        <button id="searchBtn" class="button">Search!</button>
     </form>
 
     <!---Lists and other box-->
@@ -61,12 +61,8 @@
         <div class="container">
           <div class="columns">
               <div class="column is-half has-text-centered">
-                <h1 class = "is-size-5 title ">Activities</h1>
-                <ul>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                </ul>
+                <h1 id="listDiv" class = "is-size-5 title ">Activities</h1>
+                    <!-- Tickets populate here -->
               </div>
               <div class="column is-half has-text-centered">
                 <h1 class = "is-size-5 title ">Activities</h1>
@@ -80,7 +76,13 @@
         </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="./assets/js/weather.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="assets/js/events.js"></script>
+  <script src="./assets/js/weather.js"></script>
 </body>
 
 </html>
