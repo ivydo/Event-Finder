@@ -93,6 +93,18 @@ var saveFavorite = function(eventName) {
 
 }
 
+function displayFavorites() {
+  if (favorites.length > 0) {
+    for (var j = 0; j < favorites.length; j++) {
+      var favoriteLineItemEl = document.createElement("p");
+      favoriteLineItemEl.classList = "favoriteLineItem";
+      favoriteLineItemEl.textContent = favorites[j].eventTitle;
+
+      favoriteEventsEl.append(favoriteLineItemEl);
+    }
+  }
+}
+
 //------------------------------------------------
 //Event Listeners
 //------------------------------------------------
@@ -125,4 +137,6 @@ searchBtnEl.addEventListener("click", function() {
         getTickets();
     }
 });
+
+displayFavorites();
 

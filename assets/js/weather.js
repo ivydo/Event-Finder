@@ -37,9 +37,7 @@ var formSubmitHandler = function(event) {
             cityname.textContent = "No City Found!"
         }
 });
-
 }
-
 
 //------------------------------------------------
 //Event Listeners
