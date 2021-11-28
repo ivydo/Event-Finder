@@ -1,5 +1,5 @@
 //------------------------------------------------
-// global var
+// Global Variables
 //------------------------------------------------
 // var searchInput = $("#search-input").val();
 var searchInput = "";
@@ -9,6 +9,8 @@ var ticketsArr = [];
 var listDivEl = document.querySelector('#listDiv');
 var searchBtnEl = document.querySelector('#searchBtn');
 var citySearchEl = document.querySelector('#citySearch');
+var favoriteEventsEl = document.querySelector('#favoriteEvents');
+
 const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 var eventUrls = [];
 
@@ -121,7 +123,6 @@ searchBtnEl.addEventListener("click", function() {
     } else {
         city = citySearchEl.value;
         getTickets();
-        citySearchEl.value = "";
     }
 });
 

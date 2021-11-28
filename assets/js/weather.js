@@ -1,5 +1,8 @@
+//------------------------------------------------
+// Global Variables
+//------------------------------------------------
 var formEl = document.querySelector("#form");
-var cityname = document.querySelector ("#cityname")
+var cityname = document.querySelector ("#citySearch")
 var city = document.querySelector ("#city")
 var today = document.querySelector ("#today")
 var icon = document.querySelector ("#icon")
@@ -9,9 +12,10 @@ var humidity = document.querySelector ("#humidity")
 var uv = document.querySelector ("#uv")
 var weathericon = document.querySelector ("#icon")
 
-
+//------------------------------------------------
+// Functions for API
+//------------------------------------------------
 var formSubmitHandler = function(event) {
-    event.preventDefault();
     var displaycity = cityname.value.trim()
     city.textContent = displaycity;
     today.textContent = moment().format('L, h:mm a');
@@ -37,5 +41,18 @@ var formSubmitHandler = function(event) {
 }
 
 
-formEl.addEventListener("submit", formSubmitHandler);
-
+//------------------------------------------------
+//Event Listeners
+//------------------------------------------------
+searchBtnEl.addEventListener("click", function() {
+    event.preventDefault();
+  
+      console.log(cityname.value)
+      if (cityname.value === "" || cityname.value === " " || cityname.value === null)  {
+         
+      } else {
+          city = cityname.value;
+          formSubmitHandler();
+          cityname.value = "";
+      }
+  });
