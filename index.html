@@ -41,10 +41,10 @@
         <div class="field">
             <label class="label">Find an event:</label>
             <div class="control">
-                <input class="input" type="zipcode" placeholder="Your Zipcode">
+                <input class="input" id="citySearch" type="cityName" placeholder="Enter City Name to Search">
             </div>
         </div>
-        <button class="button">Search!</button>
+        <button id="searchBtn" class="button">Search!</button>
     </form>
 
     <!---Lists and other box-->
@@ -52,12 +52,8 @@
         <div class="container">
           <div class="columns">
               <div class="column is-half has-text-centered">
-                <h1 class = "is-size-5 title ">Activities</h1>
-                <ul>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                    <li>Lorem, ipsum dolor.</li>
-                </ul>
+                <h1 id="listDiv" class = "is-size-5 title ">Activities</h1>
+                    <!-- Tickets populate here -->
               </div>
               <div class="column is-half has-text-centered">
                 <h1 class = "is-size-5 title ">Activities</h1>
@@ -70,10 +66,9 @@
           </div>  
         </div>
     </section>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="assets/js/events.js"></script>

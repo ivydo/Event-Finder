@@ -7,6 +7,8 @@ var searchInput = "";
 var ticketsArr = [];
 
 var listDivEl = document.querySelector('#listDiv');
+var searchBtnEl = document.querySelector('#searchBtn');
+var citySearchEl = document.querySelector('#citySearch');
 const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 var eventUrls = [];
 
@@ -16,19 +18,11 @@ var eventUrls = [];
 var apiKey = "HHCvi5HdAGUQ3rfG7A1ajPyCCVYaKmYj";
 var apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&city=${searchInput}`;
 
-// var OpenTripAPIKey = "5ae2e3f221c38a28845f05b62cf81c4f59366e1cca6085deda3ca948";
-// var OpenTripapiURL =
-//   "http://api.opentripmap.com/0.1/en/places/xid/Q372040?apikey=" +
-//   OpenTripAPIKey +
-//   "&name=orlando";
-
 //------------------------------------------------
 //Functions
 //------------------------------------------------
-
 function getTickets(event) {
-  event.preventDefault();
-  searchInput = $("#search-input").val();
+  searchInput = citySearchEl.value;
   apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&city=${searchInput}`;
   fetch(apiURL).then(function (response) {
     response.json().then(function (data) {
@@ -40,17 +34,6 @@ function getTickets(event) {
     });
   });
 }
-
-// function getTrip() {
-//     fetch(OpenTripapiURL).then(function(response) {
-//         response.json().then(function(dataTrip) {
-//             console.log(dataTrip);
-//         });
-//     });
-// }
-
-// getTicket();
-// getTrip();
 
 function showTickets(data) {
   var events = data._embedded.events;
@@ -127,5 +110,18 @@ $(document).on("click", ".buy-btn", function(){
   var selectedUrl = eventUrls[btnName];
 
   window.open(selectedUrl);
+});
+
+searchBtnEl.addEventListener("click", function() {
+  event.preventDefault();
+
+    console.log(citySearchEl.value)
+    if (citySearchEl.value === "" || citySearchEl.value === " " || citySearchEl.value === null)  {
+       
+    } else {
+        city = citySearchEl.value;
+        getTickets();
+        citySearchEl.value = "";
+    }
 });
 
