@@ -18,3 +18,10 @@ https://ivydo.github.io/Event-Finder/
 
 ## Acknowledgements
 Technologies used: 
+* Bulma
+* HTML
+* CSS
+* Ticketmast API
+* Open Weather API
+* Javascript
+* Jquery
