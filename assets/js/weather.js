@@ -20,7 +20,7 @@ var formSubmitHandler = function(event) {
     city.textContent = displaycity;
     today.textContent = moment().format('L, h:mm a');
 
-    var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + displaycity + "&units=imperial&appid=9a5fdca9a71d82a27d3bad8acdad7812";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + displaycity + "&units=imperial&appid=9a5fdca9a71d82a27d3bad8acdad7812";
     
     fetch(apiUrl).then(function(response) {
         if (response.ok) {
@@ -29,11 +29,11 @@ var formSubmitHandler = function(event) {
                 wind.textContent = "Wind: " + data['wind']['speed'] + " MPH"; 
                 humidity.textContent = "Humidity: " + data['main']['humidity'] + " %";
                 var iconEl = document.createElement ("img");
-                 iconEl.src = "http://openweathermap.org/img/wn/" + data['weather']["0"]['icon'] + "@2x.png"
+                 iconEl.src = "https://openweathermap.org/img/wn/" + data['weather']["0"]['icon'] + "@2x.png"
                  icon.appendChild(iconEl);
             })
         }
-        else {
+        else {    
             cityname.textContent = "No City Found!"
         }
 });

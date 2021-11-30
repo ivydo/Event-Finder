@@ -63,3 +63,18 @@ label {
 .buy-btn:hover{
   background: black;
 }
+
+#searchBtn {
+  color: white;
+  display: flexbox;
+  margin: 10px;
+  border: 0;
+  font-size: 16px;
+  line-height: 1;
+  padding: 16px 30px;
+  border-radius: 30px;
+  background:grey;
+  cursor: pointer;
+  transition: all 0.3s linear;
+
+}
