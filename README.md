@@ -3,8 +3,11 @@ This application is your one stop shop to find your next event. If you're travel
 
 Our application allows a user to search based off their zipcode location, and then presents the users with a list of events happening in the zipcode searched. A user can also save events in their favorites to view later. 
 
+## Website Preview
+![alt text](https://github.com/ivydo/Event-Finder/blob/develop/assets/images/readme.png)
+
 ## Link to Deployed Site
---
+https://ivydo.github.io/Event-Finder/
 
 ## Contributors
 * Ivy Do
@@ -15,3 +18,10 @@ Our application allows a user to search based off their zipcode location, and th
 
 ## Acknowledgements
 Technologies used: 
+* Bulma
+* HTML
+* CSS
+* Ticketmast API
+* Open Weather API
+* Javascript
+* Jquery
